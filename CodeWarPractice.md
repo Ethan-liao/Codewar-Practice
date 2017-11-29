@@ -9,7 +9,7 @@ accum("RqaEzty"); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 
 accum("cwAt");    // "C-Ww-Aaa-Tttt"
 
-## Answer
+## Solution
 ```
 function accum(s) {
  let newText=[];
@@ -19,5 +19,42 @@ function accum(s) {
  return newText
  .map((x) => x[0].toUpperCase() + x.substring(1))
  .join('-');
+}
+```
+
+## Question
+Given two arrays, a1 and a2, sort the elements of a2 based on the first letters of elements in a1.
+
+Example 1
+
+var a1 = ['giraffe', 'orangutan', 'impala', 'elephant', 'rhino'];
+var a2 = ['rattlesnake', 'eagle', 'geko', 'iguana', 'octopus'];
+
+returns ['geko', 'octopus', 'iguana', 'eagle', 'rattlesnake']
+
+## Solution
+#### Solution 1
+```
+function getMiddle(s){
+let length = s.length;
+ 	let center = (length/2);
+  let nextText = center+1;
+  if (length % 2 == 0){
+  	return s.slice(center-1,nextText);
+  	}
+	else {
+		return s.slice(center,center+1);		
+
+	}
+}
+```
+#### Refactored solution
+```
+function getMiddle(s)
+{  
+  let center = (s.length)/2;
+  let odd =  s.slice(center, center+1);
+  let even =  s.slice(center-1, center+1);
+  return (s.length % 2) ? odd : even;
 }
 ```
