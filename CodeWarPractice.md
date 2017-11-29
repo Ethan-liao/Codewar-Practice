@@ -1,15 +1,15 @@
-Question
+## Question
 This time no story, no theory. The examples below show you how to write function accum:
 
-Examples:
+ Examples:
 
 accum("abcd");    // "A-Bb-Ccc-Dddd"
 accum("RqaEzty"); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 accum("cwAt");    // "C-Ww-Aaa-Tttt"
 
 
-Answer
-
+## Answer
+```
 function accum(s) {
  let newText=[];
  for(i=0;i<s.length;i++){
@@ -19,3 +19,4 @@ function accum(s) {
  .map((x) => x[0].toUpperCase() + x.substring(1))
  .join('-');
 }
+```
