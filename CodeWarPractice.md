@@ -74,3 +74,46 @@ function disemvowel(str){
 }
 
 disemvowel("This website is for losers LOL!");
+
+
+
+## Question
+Implement the method isSortedAndHow, which accepts an array of integers, and returns one of the following:
+
+'yes, ascending' - if the numbers in the array are sorted in an ascending way
+'yes, descending' - if the numbers in the array are sorted in a descending way
+'no'
+You can assume the array will always be valid, and there will always be one correct answer.
+
+## Solution
+```
+function isSortedAndHow(array) {
+	let ascCount=0;
+	let descCount=0;
+	 if(array.length<2){
+    	return ("Error, there needs to be more than one digit")
+    }
+	for(i=0; i<=array.length;i++){
+		if(array[i]<=array[i+1] || array[i]>=array[i-1]){
+			ascCount++;
+			console.log(array[i])
+			if(ascCount==array.length){
+				return 'yes, ascending';
+			}
+		}
+		else if(array[i]>=array[i+1]|| array[i]<=array[i-1]){
+			descCount++;
+			if(descCount==array.length){
+				return 'yes, descending'
+			}
+		}
+		else{
+			return 'no'
+		}
+	}
+}
+// isSortedAndHow([4])
+// isSortedAndHow([3, 4, 5]);
+// isSortedAndHow([15, 7, 3, -8])
+// isSortedAndHow([4, 2, 30])
+```
