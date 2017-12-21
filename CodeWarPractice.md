@@ -88,27 +88,26 @@ You can assume the array will always be valid, and there will always be one corr
 ## Solution
 ```
 function isSortedAndHow(array) {
-	let ascCount=0;
-	let descCount=0;
-	 if(array.length<2){
-    	return ("Error, there needs to be more than one digit")
-    }
-	for(i=0; i<=array.length;i++){
-		if(array[i]<=array[i+1] || array[i]>=array[i-1]){
+	let ascCount = 0;
+	let descCount = 0;
+	if (array.length < 2) {
+		return 'Error, there needs to be more than one digit';
+	}
+	for (i = 0; i <= array.length-1; i++) {
+		if (array[i] <= array[i + 1] ) {
 			ascCount++;
-			console.log(array[i])
-			if(ascCount==array.length){
+			if (ascCount == array.length-1) {
 				return 'yes, ascending';
 			}
-		}
-		else if(array[i]>=array[i+1]|| array[i]<=array[i-1]){
+		} else if (array[i] >= array[i + 1] ) {
 			descCount++;
-			if(descCount==array.length){
-				return 'yes, descending'
+			console.log(array[i]);
+			if (descCount == array.length-1) {
+				return 'yes, descending';
+
 			}
-		}
-		else{
-			return 'no'
+		} else {
+			return 'no';
 		}
 	}
 }
