@@ -144,3 +144,15 @@ let factorial=(n) => {
  return n ? n*factorial(n-1):1;
 }
 ```
+## Question
+Write a reverseWords function that accepts a string a parameter, and reverses each word in the string. Any spaces in the string should be retained.
+## Solution
+```
+let reverseWords = (str)=>{
+  let arr= str.split(' ');
+  return  arr.map((x)=>{
+  	return x.split('').reverse().join('');
+   }).join(' ')
+}
+```
+reverseWords("This is an example!")
