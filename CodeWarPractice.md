@@ -116,3 +116,31 @@ function isSortedAndHow(array) {
 // isSortedAndHow([15, 7, 3, -8])
 // isSortedAndHow([4, 2, 30])
 ```
+## Question
+As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+
+## Solution
+```
+let gimme =  (inputArray) => {
+	let sorted = inputArray.concat().sort((a,b)=>{return a-b})[1];
+		return inputArray.indexOf(sorted);
+};
+
+// gimme([5, 1, 22])
+// gimme([5,10,14])
+
+```
+
+## Question
+In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
+
+Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an exception of type RangeError (JavaScript).
+## Solution
+```
+let factorial=(n) => {
+	if(n<0 || n>12){
+		throw new RangeError("Parameter must be between 0 and 12")
+	}
+ return n ? n*factorial(n-1):1;
+}
+```
