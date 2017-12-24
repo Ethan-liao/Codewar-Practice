@@ -176,3 +176,19 @@ let validatePIN = (pin)=>{
   return (/^(\d{4}|\d{6})$/).test(pin);
 }
 ```
+
+## Question
+Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+
+## Solution
+```
+let sumDigits = (number) => {
+		let arr = number.toString().split('');
+		let sum=0;
+		for(i=0; i<arr.length;i++){
+			if((/\d/g).test(arr[i])){
+				sum +=parseInt(arr[i])
+			}
+		}return sum;
+}
+```
