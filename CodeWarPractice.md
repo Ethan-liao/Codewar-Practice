@@ -185,10 +185,10 @@ Write a function named sumDigits which takes a number as input and returns the s
 let sumDigits = (number) => {
 		let arr = number.toString().split('');
 		let sum=0;
-		for(i=0; i<arr.length;i++){
-			if((/\d/g).test(arr[i])){
-				sum +=parseInt(arr[i])
-			}
-		}return sum;
+		arr.map((x) => {
+			if( (/\d/g).test(x) ){
+				sum +=parseInt(x)
+			}})
+		return sum;
 }
 ```
