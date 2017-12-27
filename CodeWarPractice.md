@@ -192,3 +192,12 @@ let sumDigits = (number) => {
 		return sum;
 }
 ```
+## Question
+We will be given the sale price (discounted price), and the sale percentage, our job is to figure out the original price.
+
+## Solution
+```
+let discoverOriginalPrice = (discountedPrice, salePercentage)=>{
+ return parseFloat((discountedPrice/((100- salePercentage)/100)).toFixed(2));
+}
+```
