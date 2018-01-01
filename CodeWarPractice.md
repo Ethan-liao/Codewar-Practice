@@ -302,3 +302,32 @@ let isValidWalk = (walk) => {
   })
   return start == 0 && counter == 10 ? true : false;
 }
+```
+
+## Question
+You will be given a number and you will need to return it as a string in Expanded Form. For example:
+
+expandedForm(12); // Should return '10 + 2'
+expandedForm(42); // Should return '40 + 2'
+expandedForm(70304); // Should return '70000 + 300 + 4'
+## Solution
+
+### still a work in progress
+```
+let expandedForm = (num)=>{
+  let newNum = num.toString();
+	let length = newNum.length - 1;
+	let result=[];
+	for(i=0;i<newNum.length;i++ && length--){
+		if(newNum[i]!=='0'){
+			result.push(newNum[i] + ('0'.repeat(length)))
+		}
+	}
+	return result.join(' + ')
+}
+
+// What are the inputs? a number 72
+// What are the outputs '70 + 2'
+
+expandedForm(70304)
+```
