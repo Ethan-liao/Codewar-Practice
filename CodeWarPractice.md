@@ -321,10 +321,9 @@ let expandedForm = (num)=>{
 	for(i=0;i<newNum.length;i++ ){
 		if(newNum[i]==='0'){
 			length--
-			result.push()
 		} else {
 			length--
-			result.push(newNum[i] + ('0'.repeat(length)))
+			result.push(newNum[i]*Math.pow(10,length))
 		}
 	}
 	return result.join(' + ')
