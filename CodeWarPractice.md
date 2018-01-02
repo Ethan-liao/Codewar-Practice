@@ -312,22 +312,21 @@ expandedForm(42); // Should return '40 + 2'
 expandedForm(70304); // Should return '70000 + 300 + 4'
 ## Solution
 
-### still a work in progress
+
 ```
 let expandedForm = (num)=>{
-  let newNum = num.toString();
-	let length = newNum.length - 1;
+  let newNum = num.toString().split('');
+	let length = newNum.length;
 	let result=[];
-	for(i=0;i<newNum.length;i++ && length--){
-		if(newNum[i]!=='0'){
+	for(i=0;i<newNum.length;i++ ){
+		if(newNum[i]==='0'){
+			length--
+			result.push()
+		} else {
+			length--
 			result.push(newNum[i] + ('0'.repeat(length)))
 		}
 	}
 	return result.join(' + ')
 }
-
-// What are the inputs? a number 72
-// What are the outputs '70 + 2'
-
-expandedForm(70304)
 ```
