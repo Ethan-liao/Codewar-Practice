@@ -329,3 +329,24 @@ let expandedForm = (num)=>{
 	return result.join(' + ')
 }
 ```
+
+## Question
+Given an array, find the int that appears an odd number of times.
+
+There will always be only one integer that appears an odd number of times.
+## Solution
+```
+let findOdd = (arr)=> {
+  let counter1=0;
+  for(i=0;i<=arr.length;i++){
+  	for(j=0;j<=arr.length;j++){
+  		if(arr[i]==arr[j]){
+  			counter1++
+  		}
+  	}
+  	if(counter1%2 != 0){
+  		return arr[i]
+  	}
+  }
+}
+```
