@@ -170,7 +170,7 @@ let validatePIN = (pin)=>{
   else return false;
 }
 ```
-Refactored
+#### Refactored solution
 ```
 let validatePIN = (pin)=>{
   return (/^(\d{4}|\d{6})$/).test(pin);
@@ -397,4 +397,13 @@ let swapHeadAndTail=(arr)=>{
    return tail.concat(arr[midPoint],head)
  }
 }
+
+#### Refactored solution
 ```
+let swapHeadAndTail=(arr)=>{
+ let midPoint =arr.length/2;
+ let tail = arr.slice(-midPoint);
+ let head = arr.slice(0,midPoint);
+ return [...tail, ...arr.slice(midPoint,-midPoint), ...head]
+
+}
