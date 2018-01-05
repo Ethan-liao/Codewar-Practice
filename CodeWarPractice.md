@@ -367,3 +367,34 @@ let squareDigits=(num)=>{
   }).join(''))
 }
 ```
+
+## Question
+You need to swap the head and the tail of the specified array:
+
+the head (the first half) of array moves to the end, the tail (the second half) moves to the start. The middle element (if it exists) leaves on the same position.
+
+Return new array.
+
+For example:
+
+    [ 1, 2, 3, 4, 5 ]   =>  [ 4, 5, 3, 1, 2 ]
+     \----/   \----/         
+      head     tail
+## Solution
+```
+let swapHeadAndTail=(arr)=>{
+ let midPoint = Math.floor(arr.length/2);
+ let tail = arr.slice(midPoint+1,arr.length);
+ let head = arr.slice(0,midPoint);
+ let result =[];
+ if(arr.length<=2){
+   return arr.reverse();
+ } else if (arr.length%2==0){
+ 	 tail = arr.slice(midPoint,arr.length);
+ 	 return tail.concat(head)
+ }
+ else if(arr.length%2!==0){
+   return tail.concat(arr[midPoint],head)
+ }
+}
+```
