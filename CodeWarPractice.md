@@ -434,3 +434,8 @@ let isPangram=(string)=>{
   }
   return abc.length == 0 ? true:false;
 }
+
+let str = "The quick brown fox jumps over the lazy dog."
+let str = "This is not a pangram."
+let str = 'abcdefeT'
+isPangram(str)
