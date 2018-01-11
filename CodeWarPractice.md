@@ -404,3 +404,33 @@ let swapHeadAndTail=(arr)=>{
  return [...tail, ...arr.slice(midPoint,-midPoint), ...head]
 
 }
+
+## Question
+A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
+
+Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+
+## Solution
+```
+let alphabet =()=>{
+	let abc = 'abcdefghijklmnopqrstuvwxyz'
+	return abc.split('')
+}
+
+let checkArr=(letter,alphArr)=>{
+	alphArr.map((el)=>{
+		if(el === letter){
+			alphArr.splice(alphArr.indexOf(el),1)
+		}
+	})
+}
+
+let isPangram=(string)=>{
+  let strToBeCompared = string.toLowerCase().replace(/\s/g,'').split('')
+  let abc=alphabet();
+  for(i=0;i<strToBeCompared.length;i++){
+  checkArr(strToBeCompared[i],abc)
+  // console.log(strToBeCompared[i])
+  }
+  return abc.length == 0 ? true:false;
+}
