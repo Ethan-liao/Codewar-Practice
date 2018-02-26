@@ -498,3 +498,64 @@ function recycleMe(recycle){
 recycleMe([5,-9,0,6,-84,-95,15])
 solution(3,3,1)
 ```
+
+## Question
+Convert number to roman numerals
+
+## Solution
+
+```
+function convertToRoman(num) {
+	let ones = ['I','II','III','IV','V','VI','VII','VIII','IX'];
+	let tenth = ['X','XX','XXX','XL','L','LX','LXX','LXXX','XC'];
+	let hundredth = ['C','CC','CCC','CD','D','DC','DCC','DCCC','CM'];
+	let thousandth = ['M','MM','MMM','MMMM','MMMMM'];
+
+	num = num.toString();
+	let arr = num.split('');
+
+	function checkTenth(value) {
+		 return value[1] == '0'? tenth[value[0]-1] : tenth[arr[0]-1] + ones[arr[1]-1];
+	}
+
+	function checkHundredth(value) {
+		for(i=1; i < value.length; i++) {
+			return (value[i] == '0' && value[i+1] == '0') ? hundredth[value[0]-1] : value[i] == '0' ? hundredth[arr[0]-1] + ones[arr[2]-1] : hundredth[arr[0]-1] + tenth[arr[1]-1] + ones[arr[2]-1]
+			}
+		}
+
+
+	function checkThousandth(value) {
+		for(i=1; i < value.length; i++){
+			if(value[i] == '0' && value[i+1] == '0' && value[i+2] == '0') {
+				return thousandth[arr[0]-1]
+			} else if(value[i] == '0' && value[i+1] == '0') {
+					return thousandth[arr[0]-1]+ ones[arr[3]-1]
+			} else if(value[i] == '0'){
+					return thousandth[arr[0]-1] + tenth[arr[2]-1] + ones[arr[3]-1]
+			} else if(value[i] !== '0'){
+				return thousandth[arr[0]-1] + hundredth[arr[1]-1] + tenth[arr[2]-1] + ones[arr[3]-1]
+			}
+		}
+	}
+
+
+	function checkPlace(el) {
+		let length = num.length;
+
+		if(length == 1) {
+			return ones[arr-1]
+		} else if (length == 2) {
+				return checkTenth(arr)
+		}	else if (length == 3) {
+				return checkHundredth(arr)
+		} else if (length == 4) {
+				return checkThousandth(arr)
+		}
+	}
+	return checkPlace(num)
+}
+
+convertToRoman(3999)
+// only up to 5999
+```
